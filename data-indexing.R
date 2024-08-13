@@ -27,3 +27,22 @@ x
 df <- data.frame(a = c(1, 10, NA))
 df$a[df$a < 5 ] <- 0
 df
+
+mtcars
+mtcars[mtcars$gear == 5, ]
+mtcars[mtcars$gear == 5 & mtcars$cyl == 4, ]
+
+subset(mtcars, gear == 5 & cyl == 4)
+library(tidyverse)
+ggplot(subset(mtcars, gear == 5 & cyl == 4), aes(x = mpg,
+                                                 y = disp)) +
+  geom_point()
+
+df <- data.frame(x = 1:3, y = 3:1, z = letters[1:3]) #df 1,2,3  3,2,1  abc
+df
+df$z <- NULL #gets rid of row
+df
+
+df[c("x", "y")]
+setdiff(names(df), "") #only want to get rid of one column
+names(df)
